@@ -1,11 +1,27 @@
-<ol>
-  <li>Add a button which says 'display details'</li>
-  <li>Add a paragraph with any content of your choice(e.g. 'secret password = tuna')</li>
-  <li>Toggle the displaying of that paragraph with the button created in the first step</li>
-  <li>Log all button clicks in an array and output that array below the 
-    secret paragraph (maybe log a timestamp or simple an incrementing number</li>
-    <li>Starting at the 5th log item, give all future log items a blue background(via ngStyle)
-      and a white color(ngClass)
-    </li>
-</ol>
-<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-16">
+      <ol>
+        <li>Add a button which says 'display details'</li>
+        <li>Add a paragraph with any content of your choice(e.g. 'secret password = tuna')</li>
+        <li>Toggle the displaying of that paragraph with the button created in the first step</li>
+        <li>Log all button clicks in an array and output that array below the 
+          secret paragraph (maybe log a timestamp or simple an incrementing number</li>
+          <li>Starting at the 5th log item, give all future log items a blue background(via ngStyle)
+            and a white color(ngClass)
+          </li>
+      </ol>
+      <hr>
+      <!-- <button class="btn btn-primart" (click)="showSecret = !showSecret">Toggle Display</button> -->
+      <button class="btn btn-primary" (click)="onToggleDetails()">Toggle Details</button>
+      <p *ngIf="showSecret">Secret Password = cats</p>
+      <div 
+        *ngFor="let logItems of log"
+        [ngStyle]="{backgroundColor: logItems >= 7 ? 'pink' : 'transparent'}"
+        [ngClass]="{'white-text': logItems >= 7}"
+        >{{ logItems }}</div>
+    </div>
+  </div>
+</div>
+
+ 
